@@ -8,7 +8,7 @@
   <name>WebApp Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
+    <groupId>lu.amazon.aws.demo</groupId>
     <artifactId>maven-war-plugin</artifactId>
     <version>4.0.0</version>
 </plugin>
