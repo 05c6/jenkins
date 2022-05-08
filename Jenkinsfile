@@ -1,6 +1,9 @@
 currentBuild.displayName = "Final_Demo # "+currentBuild.number
 pipeline{
         agent any  
+	environment{
+        VERSION = "${env.BUILD_ID}"
+        }
         stages{
               stage('SCM Download'){
                   steps{
@@ -33,5 +36,19 @@ pipeline{
                   }
                 }  
 	      }
+	     stage("docker build & docker push"){
+              steps{
+                script{
+                    withCredentials([string(credentialsId: 'docker_nexus_pwd', variable: 'docker_nexus_pwd')]) {
+                          sh '''
+                                docker build -t 34.133.112.67:8083/springapp:${VERSION} .
+                                docker login -u admin -p $docker_nexus_pwd 34.133.112.67:8083 
+                                docker push  34.133.112.67:8083/springapp:${VERSION}
+                                docker rmi 34.133.112.67:8083/springapp:${VERSION}
+                            '''
+                   }
+                }
+            }
+        }
                }  
 }
