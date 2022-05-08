@@ -33,13 +33,13 @@ pipeline{
                       }
                     }
 		    sh "mvn clean install"
-                    sh "sleep 30s"
                   }
                 }  
 	      }
 	     stage("docker build & docker push"){
               steps{
                 script{
+	            sh "cp -r ../Deekshith_MVN_PJT@2/target ."		
                     withCredentials([string(credentialsId: 'docker_nexus_pwd', variable: 'docker_nexus_pwd')]) {
                           sh '''
                                 docker build -t 34.133.112.67:8083/springapp:${VERSION} .
