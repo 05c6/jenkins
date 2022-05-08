@@ -33,6 +33,7 @@ pipeline{
                       }
                     }
 		    sh "mvn clean install"
+                    sh "sleep 10s"
                   }
                 }  
 	      }
