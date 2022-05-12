@@ -11,6 +11,8 @@ spec:
       labels:
         app: devops-training
     spec:
+      imagePullSecrets:
+        - name: registry-secret
       containers:
       - name: springapp
         image: springapp:4
