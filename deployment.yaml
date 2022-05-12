@@ -12,8 +12,8 @@ spec:
         app: devops-training
     spec:
       containers:
-      - name: devops-training
-        image: deekshithsn/devops-training:docker_tag
+      - name: springapp
+        image: springapp:29
         command: ["/bin/sh"]
         args: ["-c","sh /usr/local/tomcat/bin/startup.sh;while true; do echo hello; sleep 10;done"]
         ports:
