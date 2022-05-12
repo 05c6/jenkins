@@ -54,8 +54,8 @@ pipeline{
 	stage('ansible playbook'){
 			steps{
 			 	script{  
-				  ansiblePlaybook credentialsId: 'Jenkins_SSH_Private_Key_Ansible', disableHostKeyChecking: true, installation: 'ansible', inventory: 'hosts', playbook: 'ansible.yaml'
-				}
+				  ansiblePlaybook credentialsId: 'Private_Key_SSH_Jenkins_New', disableHostKeyChecking: true, installation: 'ansible', inventory: 'hosts', playbook: 'ansible.yaml'
+			 }
 			}
 	}	
     }  
