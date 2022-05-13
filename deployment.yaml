@@ -15,7 +15,7 @@ spec:
         - name: regcred
       containers:
       - name: springapp
-        image: springapp:36
+        image: springapp:37
         command: ["/bin/sh"]
         args: ["-c","sh /usr/local/tomcat/bin/startup.sh;while true; do echo hello; sleep 10;done"]
         imagePullPolicy: IfNotPresent
