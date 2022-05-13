@@ -42,10 +42,10 @@ pipeline{
 	            sh "cp -r ../Deekshith_MVN_PJT@2/target ."		
                     withCredentials([string(credentialsId: 'docker_nexus_pwd', variable: 'docker_nexus_pwd')]) {
                           sh '''
-                                docker build -t 35.238.33.36:8083/springapp:${VERSION} .
-                                docker login -u admin -p $docker_nexus_pwd 35.238.33.36:8083 
-                                docker push  35.238.33.36:8083/springapp:${VERSION}
-                                docker rmi 35.238.33.36:8083/springapp:${VERSION}
+                                docker build -t 34.70.150.24:8083/springapp:${VERSION} .
+                                docker login -u admin -p $docker_nexus_pwd 34.70.150.24:8083 
+                                docker push  34.70.150.24:8083/springapp:${VERSION}
+                                docker rmi 34.70.150.24:8083/springapp:${VERSION}
                             '''
                    }
                 }
@@ -54,8 +54,8 @@ pipeline{
 	stage('ansible playbook'){
 			steps{
 			 	script{  
-				  ansiblePlaybook credentialsId: 'Private_Key_SSH_Jenkins_New', disableHostKeyChecking: true, installation: 'ansible', inventory: 'hosts', playbook: 'ansible.yaml'
-			 }
+				  ansiblePlaybook credentialsId: 'SSH_Jenkins_Pvt_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'hosts', playbook: 'ansible.yaml'
+				}
 			}
 	}	
     }  
