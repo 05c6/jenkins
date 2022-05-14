@@ -42,10 +42,10 @@ pipeline{
 	            sh "cp -r ../Deekshith_MVN_PJT@2/target ."		
                     withCredentials([string(credentialsId: 'docker_nexus_pwd', variable: 'docker_nexus_pwd')]) {
                           sh '''
-                                docker build -t 35.223.152.114:8083/springapp:${VERSION} .
-                                docker login -u admin -p $docker_nexus_pwd 35.223.152.114:8083
-                                docker push  35.223.152.114:8083/springapp:${VERSION}
-                                docker rmi 35.223.152.114:8083/springapp:${VERSION}
+                                docker build -t 34.71.229.107:8083/springapp:${VERSION} .
+                                docker login -u admin -p $docker_nexus_pwd 34.71.229.107:8083
+                                docker push  334.71.229.107:8083/springapp:${VERSION}
+                                docker rmi 34.71.229.107:8083/springapp:${VERSION}
                             '''
                    }
                 }
